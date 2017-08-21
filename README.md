@@ -1,0 +1,5 @@
+# Bored Games
+
+## Sudoku
+
+## TicTacToe
