@@ -1,5 +1,6 @@
 package com.vaquierm.boredgames.boredgames.TicTacToe;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;

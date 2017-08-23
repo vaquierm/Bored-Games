@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements FragmentMainMenu.GameSelectionInteractionListener {
 
@@ -31,6 +34,28 @@ public class MainActivity extends AppCompatActivity implements FragmentMainMenu.
     public void initializeView() {
         Log.d(TAG, "entering .initializingView()");
         getFragmentManager().beginTransaction().replace(R.id.contentFrame, fragmentMainMenu).commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_info:
+                Log.d(TAG, "info CLICK");
+                Fragment fragmentInfo =  new FragmentInfo();
+                getFragmentManager().beginTransaction().add(android.R.id.content, fragmentInfo,"fragmentInfo").commit();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return true;
     }
 
     @Override
